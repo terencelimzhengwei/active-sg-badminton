@@ -1,0 +1,10 @@
+credentials_1.py
+__pycache__/
+activities.json
+venues.json
+.ipynb_checkpoints/
+*.ipynb
+*.pyc
+.DS_*
+.idea/
+201*
