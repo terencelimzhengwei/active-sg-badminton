@@ -17,6 +17,7 @@ def save_data():
         for d in date_range:
             for venue in venues['results']:
                 print (d + " : " + venue['venue_id'])
+                url =active_sg.create_url_for_activesg_booking('18', venue['venue_id'], d)
                 data = [timestamp, d]
                 result = active_sg.activesg_full_summary_badminton(d, venue['venue_id'])
                 venue = result.keys()[0]
@@ -27,7 +28,8 @@ def save_data():
                 jsonData = {"update_timestamp":timestamp,
                             "booking_date":d,
                             "venue":venue,
-                            "avail":value}
+                            "avail":value,
+                            "url":url}
                 jsonArray.append(jsonData)
             data = [timestamp, d]
             result = active_sg.arena_full_summary_badminton(d)
@@ -36,10 +38,12 @@ def save_data():
             data.append(venue)
             data = data + value
             spamwriter.writerow(data)
+            url =active_sg.create_url_for_arena_booking()
             jsonData = {"update_timestamp":timestamp,
                             "booking_date":d,
                             "venue":venue,
-                            "avail":value}
+                            "avail":value,
+                            "url":url}
             jsonArray.append(jsonData)
         with open("/home/chip/active-sg-badminton/data/latest.json","w") as f:
             json.dump(jsonArray,f)
