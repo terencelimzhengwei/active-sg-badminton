@@ -8,3 +8,4 @@ venues.json
 .DS_*
 .idea/
 201*
+credentials.py
