@@ -13,12 +13,12 @@ class ActiveSG(object):
 
         self.login(username, password)
 
-        if not os.path.isfile('/home/chip/active-sg-badminton/venues.json'):
-            self.save_list_of_venues()
-            print('saving venues')
-        if not os.path.isfile('/home/chip/active-sg-badminton/activities.json'):
-            self.save_list_of_activities()
-            print('saving activities')
+        #if not os.path.isfile('/home/chip/active-sg-badminton/venues.json'):
+        self.save_list_of_venues()
+        print('saving venues')
+        #if not os.path.isfile('/home/chip/active-sg-badminton/activities.json'):
+        self.save_list_of_activities()
+        print('saving activities')
 
         with open('/home/chip/active-sg-badminton/venues.json') as data_file:
             self.venues = json.load(data_file)

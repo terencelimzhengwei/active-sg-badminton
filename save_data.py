@@ -5,6 +5,8 @@ import csv
 import json
 
 active_sg = ActiveSG(credentials['username'], credentials['password'])
+active_sg.save_list_of_activities()
+active_sg.save_list_of_venues()
 
 def save_data():
     timestamp = datetime.now().strftime("%Y%m%d%H%M")
